@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>LaundryFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+  <h2>LaundryFlow</h2>
+  <p>Order Management System</p>
+</div>
+
+<div class="container">
+
+  <h1>Dashboard</h1>
+
+  <div class="cards">
+    <div class="card"><h3>Total Orders</h3><p id="totalOrders">0</p></div>
+    <div class="card"><h3>Revenue</h3><p id="revenue">₹0</p></div>
+    <div class="card"><h3>Received</h3><p id="received">0</p></div>
+    <div class="card"><h3>Processing</h3><p id="processing">0</p></div>
+    <div class="card"><h3>Ready</h3><p id="ready">0</p></div>
+    <div class="card"><h3>Delivered</h3><p id="delivered">0</p></div>
+  </div>
+
+  <div class="section">
+    <h2>Create Order</h2>
+
+    <div class="form-grid">
+      <input id="name" placeholder="Customer Name">
+      <input id="phone" placeholder="Phone Number">
+      <select id="garment">
+        <option value="Shirt">Shirt</option>
+        <option value="Pants">Pants</option>
+        <option value="Saree">Saree</option>
+        <option value="Jacket">Jacket</option>
+      </select>
+      <input id="qty" type="number" placeholder="Quantity">
+    </div>
+
+    <button onclick="createOrder()">Create Order</button>
+  </div>
+
+  <div class="section">
+    <h2>Orders</h2>
+
+    <div class="filters">
+      <input id="search" placeholder="Search Name / Phone" oninput="loadOrders()">
+      <select id="filterStatus" onchange="loadOrders()">
+        <option value="ALL">All Status</option>
+        <option value="RECEIVED">Received</option>
+        <option value="PROCESSING">Processing</option>
+        <option value="READY">Ready</option>
+        <option value="DELIVERED">Delivered</option>
+      </select>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Garment</th>
+          <th>Qty</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>Update</th>
+          <th>Delivery</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="ordersTable"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
